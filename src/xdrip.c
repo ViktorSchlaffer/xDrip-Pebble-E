@@ -5,7 +5,7 @@
 /* The line below will set the debug message level.  
 Make sure you set this to 0 before building a release. */
 
-#define DEBUG_LEVEL 0
+#define DEBUG_LEVEL 999 /* TODO: modified for emulator */
 #define ICON_MSGSTR_SIZE 4
 #define BG_MSGSTR_SIZE 6
 #define BGDELTA_MSGSTR_SIZE 13
@@ -129,7 +129,7 @@ static bool battery_changing = false;
 // global variables for sync tuple functions
 // buffers have to be static and hardcoded
 static char current_icon[2];
-static char last_bg[6];
+static char last_bg[6]="100";
 //static int current_bg = 0;
 static bool currentBG_isMMOL = false;
 static char last_battlevel[4];
@@ -2229,7 +2229,7 @@ static void init_cgm(void) {
 	tick_timer_service_subscribe(SECOND_UNIT, &handle_second_tick_cgm);
 
 	// subscribe to the bluetooth connection service
-	bluetooth_connection_service_subscribe(handle_bluetooth_cgm);
+	// bluetooth_connection_service_subscribe(handle_bluetooth_cgm);
 	
 	// init the window pointer to NULL if it needs it
 	if (window_cgm != NULL) {
